@@ -1,0 +1,11 @@
+**pycache**/
+*.pyc
+.ipynb_checkpoints/
+
+test.txt
+
+.DS_Store
+Thumbs.db
+
+.vscode/
+.idea/
