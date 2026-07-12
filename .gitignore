@@ -1,11 +1,27 @@
-**pycache**/
-*.pyc
-.ipynb_checkpoints/
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
 
-test.txt
+# Virtual Environment
+.venv/
+venv/
 
-.DS_Store
-Thumbs.db
-
+# VS Code
 .vscode/
-.idea/
+
+# Python Environment
+.env
+
+# Build Files
+dist/
+build/
+
+# Node
+node_modules/
+
+# Logs
+*.log
+
+# Zip Files
+*.zip
