@@ -1,4 +1,4 @@
-# AirVision AI
+# AQI Prediction
 
 AirVision AI is a web application that predicts the Air Quality Index (AQI) for the next 1, 2, and 3 hours using XGBoost machine learning models. The project combines a FastAPI backend with a React frontend to provide accurate predictions, interactive visualizations, and model insights through a modern dashboard.
 
