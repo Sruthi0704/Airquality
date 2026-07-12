@@ -5,13 +5,14 @@ import pandas as pd
 # ==========================
 # Base Directory
 # ==========================
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
+APP_DIR = Path(__file__).resolve().parent.parent
+PROJECT_DIR = APP_DIR.parent
 
 # ==========================
 # Paths
 # ==========================
-MODELS_DIR = BASE_DIR / "models"
-DATA_DIR = BASE_DIR / "data"
+MODELS_DIR = APP_DIR / "models"
+DATA_DIR = PROJECT_DIR / "data"
 
 DATASET_PATH = DATA_DIR / "Main_Parameters(2020-2024).xlsx"
 
@@ -35,7 +36,7 @@ feature_cols = list(
         columns=[
             "timestamp",
             "AQI",
-            "AQI_target"
+            "AQI_target",
         ]
     ).columns
 )
