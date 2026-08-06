@@ -7,6 +7,8 @@ import { getDashboard } from "../../services/dashboardService";
 
 function Dashboard() {
   const [dashboard, setDashboard] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     loadDashboard();
@@ -14,14 +16,28 @@ function Dashboard() {
 
   const loadDashboard = async () => {
     try {
+      console.log("Fetching dashboard...");
+
       const data = await getDashboard();
+
+      console.log("Dashboard Response:", data);
+
       setDashboard(data);
-    } catch (error) {
-      console.log(error);
+      setLoading(false);
+    } catch (err) {
+      console.error("Dashboard Error:", err);
+
+      if (err.response) {
+        console.log("Status:", err.response.status);
+        console.log("Data:", err.response.data);
+      }
+
+      setError("Unable to load dashboard.");
+      setLoading(false);
     }
   };
 
-  if (!dashboard) {
+  if (loading) {
     return (
       <div className="flex items-center justify-center h-[70vh]">
         <h1 className="text-2xl font-semibold text-slate-500">
@@ -31,10 +47,18 @@ function Dashboard() {
     );
   }
 
+  if (error) {
+    return (
+      <div className="flex items-center justify-center h-[70vh]">
+        <h1 className="text-2xl font-semibold text-red-500">
+          {error}
+        </h1>
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-16">
-
-      {/* Header */}
 
       <section>
 
@@ -47,17 +71,13 @@ function Dashboard() {
         </h1>
 
         <p className="mt-6 text-lg text-slate-500 max-w-4xl leading-8">
-          Monitor current air quality conditions, model accuracy and forecasting
-          insights in one unified dashboard.
+          Monitor current air quality conditions, model accuracy and
+          forecasting insights in one unified dashboard.
         </p>
 
       </section>
 
-      {/* KPI Cards */}
-
       <section className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-
-        {/* AQI */}
 
         <div className="rounded-3xl bg-gradient-to-br from-blue-600 to-cyan-500 text-white shadow-lg p-8">
 
@@ -81,8 +101,6 @@ function Dashboard() {
 
         </div>
 
-        {/* Accuracy */}
-
         <div className="rounded-3xl bg-white shadow-lg p-8">
 
           <FaChartLine
@@ -103,8 +121,6 @@ function Dashboard() {
           </p>
 
         </div>
-
-        {/* Last Updated */}
 
         <div className="rounded-3xl bg-white shadow-lg p-8">
 
@@ -128,8 +144,6 @@ function Dashboard() {
         </div>
 
       </section>
-
-      {/* Charts */}
 
       <section className="grid grid-cols-12 gap-8">
 
