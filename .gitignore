@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual Environment
+.venv/
+venv/
+
+# VS Code
+.vscode/
+
+# Python Environment
+.env
+
+# Build Files
+dist/
+build/
+
+# Node
+node_modules/
+
+# Logs
+*.log
+
+# Zip Files
+*.zip
