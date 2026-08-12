@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "https://airvision-api.onrender.com/$1"
+      "destination": "https://airvision-ai-api.onrender.com/$1"
     },
     {
       "source": "/(.*)",
